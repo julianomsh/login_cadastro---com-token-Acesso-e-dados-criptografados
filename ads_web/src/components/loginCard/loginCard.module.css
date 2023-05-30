@@ -1,0 +1,15 @@
+.card{
+    background-color: rgba(0, 0, 0, 0.452);
+    width: 400px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.title{
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
