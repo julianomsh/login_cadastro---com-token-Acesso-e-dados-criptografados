@@ -5,32 +5,35 @@ let users = []
 const SECRET = process.env.JWC_SECRET
 
 function createToken(user){
-    return jwr.sign({ emil: user.email, name: user.name}, SECRET)
+    return jwt.sign({ email: user.email, name: user.name}, SECRET)
 }
-
 
 function readToken(token){
     try {
         return jwt.verify(token, SECRET)
     } catch (err) {
-        
+        throw new Error('Token Invalido')
     }
 }
 
+
 export function cadastro(body){
-    const user = user.find(({email}) => email === body.email)
-    if(user) throw new Error('Usuario ja cadastrado')
+    const user = users.find(({ email }) => email === body.email)
+    if (user) throw new Error('Usuario ja cadastrado')
 
 
     users.push(body)
-    return body
+
+    const token = createToken(body)
+    return token
 }
 
-export function login(body){
-    const user = user.find(({email}) => email === body.email)
-    if(!user)  throw new Error('Usuario não encontrado')
-    if(user.password !== body.password)  throw new Error('senha incorreta')
+export function login(body) {
+    const user = users.find(({ email }) => email === body.email)
+    if (!user) throw new Error('Usuario não encontrado')
+    if (user.password !== body.password)  throw new Error('senha incorreta')
 
-    return user
+    const token = createToken(user)
+    return token
 
 }

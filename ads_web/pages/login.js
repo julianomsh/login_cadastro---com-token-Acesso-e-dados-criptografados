@@ -10,7 +10,7 @@ export default function LoginPage(){
         <form className='form'>
         <Input type="email" placeholder="E-mail"/>
         <Input type="password" placeholder="Senha"/>
-        <Button>Entrar</Button>
+        <Button type='submit'>Entrar</Button>
         </form>
         <Link href="/cadastro"> Ainda não possui cadastro?</Link>
 
