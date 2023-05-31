@@ -16,6 +16,10 @@ function readToken(token){
     }
 }
 
+export function verificaToken(token){
+    return readToken(token)
+}
+
 
 export function cadastro(body){
     const user = users.find(({ email }) => email === body.email)

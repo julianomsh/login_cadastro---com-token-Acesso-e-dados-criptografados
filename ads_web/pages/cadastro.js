@@ -1,5 +1,6 @@
-import {useState} from 'react'
-
+import { useState } from 'react'
+import { setCookie } from 'cookies-next'
+import { useRouter } from 'next/router'
 
 import LoginCard from '../src/components/loginCard/loginCard'
 import Input from '../src/components/input/input'
@@ -14,6 +15,9 @@ const[formData, setFormdata] = useState({
     password:'',
 })
 
+const [error, setError] = useState('');
+const router = useRouter();
+
 const handleFormEdit = (event, name) => {
     setFormdata({
         ...formData,
@@ -22,9 +26,24 @@ const handleFormEdit = (event, name) => {
     })
 }
 
-const handleForm = (event) => {
+const handleForm = async (event) => {
+    
+try {
     event.preventDefault()
-    console.log(formData)
+    const response = await fetch(`/api/user/cadastro`,
+     {method:'POST',
+     body: JSON.stringify(formData)
+    })
+    const json = await response.json()
+    if(response.status !== 201) throw new Error (json)
+
+    setCookie('authorization', json)
+    router.push('/')
+
+} catch (err) {
+    setError(err.message)
+    
+}
 }
 
 
@@ -36,6 +55,9 @@ const handleForm = (event) => {
                 <Input type="email" placeholder="E-mail" required value={formData.email} onChange={(e) => {handleFormEdit(e, 'email')}}/>
                 <Input type="password" placeholder="Senha" required value={formData.password} onChange={(e) => {handleFormEdit(e, 'password')}}/>
                 <Button >Cadastrar</Button>
+
+                {error && <p className='error'>{error}</p>}
+                
             </form>
             <Link href="/login"> Ja possui cadastro?</Link>
             </LoginCard >
