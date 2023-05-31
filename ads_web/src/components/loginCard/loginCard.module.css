@@ -1,7 +1,7 @@
 .card{
-    background-color: rgba(0, 0, 0, 0.452);
-    width: 400px;
-    padding: 20px;
+    background-color: rgb(84, 155, 247);
+    width: 350px;
+    padding: 25px;
     border-radius: 10px;
 }
 
@@ -11,5 +11,7 @@
     font-size: 20px;
     font-weight: bold;
     margin-bottom: 20px;
+    margin-top: 10px;
 
 }
+

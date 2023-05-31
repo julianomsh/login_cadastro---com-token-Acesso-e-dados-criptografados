@@ -1,5 +1,5 @@
 import { getCookie } from 'cookies-next'
-import { verifica } from '../services/user'
+import { verificaToken } from '../services/user'
 
 
 export default function Home() {
@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <div>
-    teste
+    PAGINA SEGURA
    </div>
   )
 }
@@ -18,7 +18,7 @@ try {
   const token = getCookie('authorization', {req, res})
   if(!token) throw new Error('Token inválido')
 
-  verifica(token)
+  verificaToken(token)
   return{
     props: {}
   }

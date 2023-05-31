@@ -10,6 +10,9 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  align-items:center;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 * {
@@ -21,7 +24,7 @@ a {
     color-scheme: dark;
   }
   body {
-    color: rgb(39, 39, 39);
+    color: rgb(20, 20, 20);
     background: rgb(255, 255, 255);
 
     .background{
@@ -37,7 +40,7 @@ a {
       gap: 10px;
     }
 
-  }
 
+  }
 }
 

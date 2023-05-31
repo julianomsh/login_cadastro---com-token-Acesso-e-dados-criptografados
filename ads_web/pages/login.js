@@ -55,7 +55,8 @@ const handleForm = async (event) => {
         {error && <p className='error'>{error}</p>}
 
         </form>
-        <Link href="/cadastro"> Ainda não possui cadastro?</Link>
+        <p></p>
+        <Link classname='text-below' href="/cadastro"> Ainda não possui cadastro?</Link>
 
       </LoginCard >
   </div>
