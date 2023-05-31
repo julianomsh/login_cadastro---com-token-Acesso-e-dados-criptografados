@@ -49,11 +49,11 @@ const handleForm = async (event) => {
       <LoginCard title="Entre em sua conta">
         <form onSubmit={handleForm}  className='form'>
         <Input type="email" placeholder="E-mail" value={formData.email} onChange={(e) => {handleFormEdit(e, 'email')}} required/>
-        <Input type="password" placeholder="Senha" value={formData.email} onChange={(e) => {handleFormEdit(e, 'password')}} required/>
+        <Input type="password" placeholder="Senha" value={formData.password} onChange={(e) => {handleFormEdit(e, 'password')}} required/>
         <Button type='submit'>Entrar</Button>
 
         {error && <p className='error'>{error}</p>}
-        
+
         </form>
         <Link href="/cadastro"> Ainda não possui cadastro?</Link>
 
